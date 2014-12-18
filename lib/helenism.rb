@@ -1,6 +1,6 @@
 class Helenism
-  def initialize(quote)
-    @quote = quote
+  def initialize(options)
+    @quote = options[:quote]
   end
 
   def fuck_shit_frequency
@@ -9,13 +9,13 @@ class Helenism
 
   def intoxication_state
     if fuck_shit_frequency < 0.2
-      :working
-    elsif
-      :buzzed
-    elsif
-      :drunk
+      'probably working'
+    elsif fuck_shit_frequency < 0.4
+      'buzzed'
+    elsif fuck_shit_frequency < 0.6
+      'drunk'
     else
-      :wasted
+      'wasted'
     end
   end
 

@@ -1,9 +1,40 @@
-<% if @helenism %>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>How drunk is Helen?</title>
+    <link rel="stylesheet" href="/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/css/vendor/foundation.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="large-12 columns" style="text-align: center">
+        <h1>How Drunk is Helen?</h1>
+        <% if @helenism %>
+          <div class="panel callout">
+            <h3>Helen is <strong><%= @helenism.intoxication_state %></strong></h3>
 
-<% end %>
+            <p><%= @quip.text %></p>
+          </div>
 
-<form action="/helenisms" method="post">
-  <input type="text" name="helenism[quote]">
+          <p>We're here to help! Enter another Helenism.</p>
+        <% end %>
+      </div>
 
-  <input type="submit" value="How drunk is Helen?"
-</form>
+      <form action="/helenisms" method="post">
+        <div class="row">
+          <div class="large-12 columns">
+            <label>
+              <input type="text" name="helenism[quote]" placeholder="Enter a recent quote...">
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns" style="text-align: center">
+            <input type="submit" value="How drunk is Helen?" class="button">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
